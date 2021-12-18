@@ -9,7 +9,7 @@ const List = () => {
   return (
     <div className="mx-auto flex flex-wrap border w-10/12 my-8  p-4">
       {data.map((pokemon) => (
-        <Item key={pokemon.name} pokemon={pokemon} />
+        <Item key={pokemon.name} {...pokemon} />
       ))}
     </div>
   );

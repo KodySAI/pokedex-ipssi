@@ -1,30 +1,33 @@
-import React, { useEffect, useState } from "react";
-import PokemonApi from "../../../Api/PokemonApi/PokemonApi";
+import React from "react";
 
-const Item = ({ pokemon }) => {
-  const { url } = pokemon;
-
-  const [foundedPokemon, setFoundedPokemen] = useState([]);
-
-  var num = url.replace(/[^0-9]/g, "").slice(1);
-
-  const getPokemon = async () => {
-    const response = await PokemonApi.get(`pokemon/${num}`);
-    console.log(response.data);
-    setFoundedPokemen(response.data);
+const Item = (props) => {
+  const getCss = () => {
+    const cardStyles = {
+      backgroundImage: `url(${props.sprites.front_default})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center center",
+      width: "100%",
+      height: "80%",
+      position: "relative",
+    };
+    return cardStyles;
   };
 
-  console.log(foundedPokemon);
+  const types = props.types.map((el) => {
+    return el.type.name;
+  });
 
-  const { name, sprites } = foundedPokemon;
+  console.log(types);
 
-  useEffect(() => {
-    getPokemon();
-  }, []);
   return (
-    <div className="w-64 h-72 ">
-      {name}
-      <img src={sprites.front_default} alt="" />
+    <div className="border w-64 h-72 rounded-md m-auto bg-white">
+      <div className="cursor-pointer rounded-t-lg" style={getCss(props)} />
+      <h1>{props.name}</h1>
+      <div>
+        {types.map((el) => {
+          return <span className="mx-2">{el}</span>;
+        })}
+      </div>
     </div>
   );
 };
