@@ -10,23 +10,25 @@ export const MainProvider = (props) => {
     const response = await PokemonApi.get("pokemon");
 
     const responseDetails = await Promise.all(
-      response.data.results.map((el) => {
-        return PokemonApi.get(`/pokemon/${el.name}`);
+      response.data.results.map((item) => {
+        return PokemonApi.get(`/pokemon/${item.name}`);
       })
     );
-    const responseDetailsData = responseDetails.map((el) => {
-      return el.data;
+    const responseDetailsData = responseDetails.map((item) => {
+      return item.data;
     });
-    console.log(responseDetailsData);
-    setData(responseDetailsData);
+    localStorage.setItem("pokemonList", JSON.stringify(responseDetailsData));
   };
 
   useEffect(() => {
     getPokemonList();
+    const storageData = JSON.parse(localStorage.getItem("pokemonList"));
+    setData(storageData);
   }, []);
+  console.log(data);
 
   return (
-    <MainContext.Provider value={{ data }}>
+    <MainContext.Provider value={{ data, getPokemonList, setData }}>
       {props.children}
     </MainContext.Provider>
   );
