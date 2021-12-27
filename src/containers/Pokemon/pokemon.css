@@ -1,0 +1,124 @@
+.normal {
+  background-color: rgb(197, 192, 192);
+}
+.poison {
+  background-color: rgb(122, 52, 172);
+}
+.psychic {
+  background-color: rgb(228, 151, 224);
+}
+.grass {
+  background-color: rgb(142, 207, 142);
+}
+.ground {
+  background-color: rgb(236, 207, 144);
+}
+.ice {
+  background-color: rgb(155, 208, 224);
+}
+.fire {
+  background-color: tomato;
+}
+.rock {
+  background-color: rgb(185, 165, 122);
+}
+.dragon {
+  background-color: rgb(139, 74, 214);
+}
+.water {
+  background-color: rgb(32, 191, 240);
+}
+.bug {
+  background-color: rgb(191, 216, 100);
+}
+.dark {
+  background-color: rgb(87, 64, 64);
+}
+.fighting {
+  background-color: rgb(129, 73, 73);
+}
+.ghost {
+  background-color: rgb(137, 107, 170);
+}
+.steel {
+  background-color: rgb(201, 179, 199);
+}
+.flying {
+  background-color: rgb(67, 121, 184);
+}
+.electric {
+  background-color: rgb(235, 216, 111);
+}
+.fairy {
+  background-color: rgb(255, 192, 250);
+}
+
+#arrowAnim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border: 10px solid;
+  border-color: rgb(255, 255, 255) transparent transparent rgb(255, 255, 255);
+  transform: rotate(135deg);
+}
+
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 4s linear infinite;
+  animation: slide 4s linear infinite;
+}
+
+.delay1 {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.delay2 {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.delay3 {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-9px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-9px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+}
