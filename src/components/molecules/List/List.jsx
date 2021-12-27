@@ -6,7 +6,7 @@ const List = () => {
   const { data } = useContext(MainContext);
 
   return (
-    <div className="mx-auto flex flex-wrap w-9/12 my-8  p-4 justify-between">
+    <div className="mx-auto flex flex-wrap w-9/12 p-4 justify-between">
       {data.map((pokemon) => (
         <Item key={pokemon.name} {...pokemon} />
       ))}

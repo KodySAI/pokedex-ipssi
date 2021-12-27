@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/molecules/Footer";
 import Nav from "./components/molecules/Nav/Nav";
+import FavouritesPokemon from "./components/organismes/FavouritesPokemon/FavouritesPokemon";
 import HomeScreen from "./components/organismes/HomeScreen/HomeScreen";
 import FilterPage from "./containers/FilterPage/FilterPage";
 import Pokemon from "./containers/Pokemon/Pokemon";
@@ -22,6 +23,11 @@ function App() {
           <Route path="/pokemon/:urlName" exact element={<Pokemon />} />
           <Route path="/filter_list/:urlValue" exact element={<FilterPage />} />
           <Route path="/type/:urlValue" exact element={<TypesPage />} />
+          <Route
+            path="/my_favourites_pokemons"
+            exact
+            element={<FavouritesPokemon />}
+          />
         </Routes>
         <Footer />
       </div>

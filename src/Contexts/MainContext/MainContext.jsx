@@ -25,7 +25,6 @@ export const MainProvider = (props) => {
     const storageData = JSON.parse(localStorage.getItem("pokemonList"));
     setData(storageData);
   }, []);
-  console.log(data);
 
   return (
     <MainContext.Provider value={{ data, getPokemonList, setData }}>

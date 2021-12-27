@@ -11,13 +11,11 @@ export const Form = (props) => {
     const fieldValue = event.target.value;
     setInputValue(fieldValue);
   };
-  console.log(inputValue);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const getPokemon = async () => {
       const result = await PokemonApi.get(`/pokemon/${inputValue}`);
-      console.log(result.data.name);
       const redirect = () => {
         navigate(`/filter_list/${result.data.name}`);
       };
@@ -37,8 +35,7 @@ export const Form = (props) => {
           value={inputValue}
           onChange={(event) => handleChange(event)}
         />
-        <button className="border border-white h-10" type="submit">
-          submit
+        <button className="border border-white h-10 w-10" type="submit">
           <i className="fa fa-search"></i>
         </button>
       </form>

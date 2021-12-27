@@ -4,13 +4,15 @@ import { Form } from "../../../containers/Form";
 
 import "./nav.css";
 
+import Logo from "./logo.png";
+
 const Nav = () => {
   return (
     <div className="flex flex-wrap items-center relative navBgColor text-white h-20 px-8 justify-between">
       <div className="logo-div text-left">
         <Link to="/" exact="true">
           <div className="flex flex-wrap place-items-center">
-            <img className="h-16 w-16" src="logo.png" alt="" />
+            <img className="h-16 w-16" src={Logo} alt="" />
             <h1 className="text-white text-2xl leading-5 font-bold ">
               Pokedex
             </h1>
@@ -21,18 +23,15 @@ const Nav = () => {
         <Form />
       </div>
 
-      <div className="flex flex-wrap list-none div-list justify-between">
-        <li className="mx-4 font-bold hover:text-blue-500 cursor-pointer text-sm">
-          Mansion
-        </li>
+      <div className="flex flex-wrap list-none div-list justify-end">
         <Link to="/" exact="true">
           <li className="mx-4 font-bold hover:text-blue-500 cursor-pointer text-sm">
-            Appartments
+            Home
           </li>
         </Link>
-        <Link to="/baconApi">
+        <Link to="/my_favourites_pokemons" exact="true">
           <li className="mx-4 font-bold hover:text-blue-500 cursor-pointer text-sm">
-            Bacon Ipsum
+            My Favourites
           </li>
         </Link>
       </div>
