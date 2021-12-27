@@ -34,7 +34,7 @@ const Item = (props) => {
 
   return (
     <div
-      className={`w-64 h-80 rounded-lg m-auto bg-white m-2 p-6 relative ${props.types[0].type.name}`}
+      className={`w-64 h-80 rounded-lg m-auto bg-white my-4 p-6 relative ${props.types[0].type.name}`}
     >
       <div
         className={`w-6 h-6 rounded-full absolute bg-white right-3 top-1 cursor-pointer`}
