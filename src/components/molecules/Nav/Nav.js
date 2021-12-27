@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Form } from "../../../containers/Form";
 
 import "./nav.css";
 
@@ -16,7 +17,9 @@ const Nav = () => {
           </div>
         </Link>
       </div>
-      <div className="form-div"></div>
+      <div className="form-div">
+        <Form />
+      </div>
 
       <div className="flex flex-wrap list-none div-list justify-between">
         <li className="mx-4 font-bold hover:text-blue-500 cursor-pointer text-sm">

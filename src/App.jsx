@@ -5,7 +5,9 @@ import "./App.css";
 import Footer from "./components/molecules/Footer";
 import Nav from "./components/molecules/Nav/Nav";
 import HomeScreen from "./components/organismes/HomeScreen/HomeScreen";
+import FilterPage from "./containers/FilterPage/FilterPage";
 import Pokemon from "./containers/Pokemon/Pokemon";
+import TypesPage from "./containers/TypesPage/TypesPage";
 
 import { MainProvider } from "./Contexts/MainContext/MainContext";
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/" exact element={<HomeScreen />} />
           <Route path="/pokemon" exact element={<HomeScreen />} />
           <Route path="/pokemon/:urlName" exact element={<Pokemon />} />
+          <Route path="/filter_list/:urlValue" exact element={<FilterPage />} />
+          <Route path="/type/:urlValue" exact element={<TypesPage />} />
         </Routes>
         <Footer />
       </div>

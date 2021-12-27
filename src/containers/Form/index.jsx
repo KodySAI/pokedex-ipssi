@@ -1,41 +1,45 @@
-import React, { useState, useContext } from "react";
-import { MainContext } from "../../Context/MainContext";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PokemonApi from "../../Api/PokemonApi/PokemonApi";
 
-export const Form = () => {
-  const { setFoundedApp, data } = useContext(MainContext);
-
+export const Form = (props) => {
   const [inputValue, setInputValue] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    const fieldValue = event.target.value;
+    setInputValue(fieldValue);
+  };
+  console.log(inputValue);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const fieldValue = event.target.value;
-    setInputValue(fieldValue);
-
-    const foundAppartments = data.filter((item, index) =>
-      item.title.toLowerCase().includes(fieldValue.toLowerCase())
-    );
-
-    if (fieldValue === "") {
-      setFoundedApp(data);
-    } else {
-      setFoundedApp(foundAppartments);
-    }
-    console.log(data);
+    const getPokemon = async () => {
+      const result = await PokemonApi.get(`/pokemon/${inputValue}`);
+      console.log(result.data.name);
+      const redirect = () => {
+        navigate(`/filter_list/${result.data.name}`);
+      };
+      redirect();
+    };
+    getPokemon();
   };
 
   return (
     <div className="mx-auto m-5">
       <form onSubmit={(event) => handleSubmit(event)}>
         <input
-          className="text-gray-900 w-10/12 h-10 border p-2 rounded"
+          className="text-gray-900 w-10/12 h-10 border p-2 rounded-bl rounded-tl"
           type="text"
           placeholder="Search..."
-          // autoComplete="off"
           name="inputSearchValue"
           value={inputValue}
+          onChange={(event) => handleChange(event)}
         />
-        <button type="submit">
-          <i class="fa fa-search"></i>
+        <button className="border border-white h-10" type="submit">
+          submit
+          <i className="fa fa-search"></i>
         </button>
       </form>
     </div>
